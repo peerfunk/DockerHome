@@ -1,11 +1,11 @@
 
 # 🚀 DockerHome  
-### Lightweight Docker Application Dashboard & Manager
+### Lightweight Docker Application Dashboard
 
 DockerHome is a tiny self-hosted web interface as a link/home-page for all your docker-containers.
 It lets you autogenerate a view and configure it all from a clean modern UI, similiar to HomeLab, not as complex and way simpler to set up.
-Most of this stuff was vibecoded, its just a sideproject I did because I needed such a tool. It is only intedned to be run in Homelabs or Testservers, there is no security.
----
+
+Most of this stuff was vibecoded, its just a sideproject I created because I needed such a tool. It is only intedned to be run in Homelabs or Testservers, there is no security.
 
 ## ✨ Features
 
