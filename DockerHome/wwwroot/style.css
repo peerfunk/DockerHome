@@ -1,0 +1,292 @@
+/* ============================================================
+   2025 MODERN FLUENT / LINEAR / RAYCAST UI
+   ============================================================ */
+
+/* COLOR SYSTEM ------------------------------------------------ */
+:root {
+    --bg: #f7f8fa;
+    --bg-elevated: #ffffffaa;
+    --bg-elevated-solid: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6e6e6e;
+
+    --accent: #4c70ff;
+    --accent-soft: rgba(76, 112, 255, 0.15);
+
+    --separator: rgba(0,0,0,0.08);
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+
+    --pill-running: #3cd380;
+    --pill-stopped: #ff5f5f;
+
+    --radius: 12px;
+    --radius-sm: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #101114;
+        --bg-elevated: #1a1b1fbb;
+        --bg-elevated-solid: #1a1b1f;
+        --text: #e6e6e6;
+        --muted: #9a9a9a;
+
+        --accent-soft: rgba(76,112,255,0.2);
+        --separator: rgba(255,255,255,0.08);
+        --shadow: 0 4px 20px rgba(0,0,0,0.4);
+
+        --pill-running: #5aff9d;
+        --pill-stopped: #ff7b7b;
+    }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   NAV BAR
+   ============================================================ */
+.nav {
+    padding: 14px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    backdrop-filter: blur(12px);
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--separator);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* ============================================================
+   BUTTONS (2025 minimal)
+   ============================================================ */
+.btn {
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated-solid);
+    color: var(--text);
+    border: 1px solid var(--separator);
+    cursor: pointer;
+
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow);
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: white;
+    border-color: transparent;
+}
+
+.btn.primary:hover {
+    background: #3358ff;
+}
+
+/* Small button */
+.btn.small {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+}
+
+/* ============================================================
+   GRID LAYOUT
+   ============================================================ */
+.grid {
+    padding: 00px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ============================================================
+   CARDS (minimal 2025)
+   ============================================================ */
+.card,
+.edit-card {
+    background: var(--bg-elevated-solid);
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--separator);
+
+    backdrop-filter: blur(10px);
+}
+
+.edit-card {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ============================================================
+   LIST ROWS
+   ============================================================ */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+
+    background: var(--bg-elevated-solid);
+
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.row:hover {
+    border-color: var(--separator);
+    background: var(--accent-soft);
+}
+
+/* Checkbox uses accent-color */
+.row input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    accent-color: var(--accent);
+}
+
+/* Name text */
+.row strong {
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+input[type=text],
+textarea {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--separator);
+    background: var(--bg-elevated-solid);
+    color: var(--text);
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    transition: border-color 0.2s, background 0.2s;
+}
+
+input[type=text]:focus,
+textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    background: var(--bg-elevated);
+}
+
+/* ============================================================
+   ICON AREA (2025)
+   ============================================================ */
+.nice-icon-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 220px;
+}
+
+.icon-preview,
+.icon-placeholder,
+.icon-img {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--separator);
+
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    color: var(--muted);
+
+    box-shadow: var(--shadow);
+    object-fit: contain;
+}
+
+.icon-url-input {
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   STATUS PILLS
+   ============================================================ */
+.status-pill {
+    padding: 5px 10px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-running {
+    background: var(--pill-running);
+}
+
+.status-stopped {
+    background: var(--pill-stopped);
+}
+
+/* ============================================================
+   CLICKABLE
+   ============================================================ */
+.clickable {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+}
+
+.clickable:hover {
+    background: var(--accent-soft);
+}
+.edit-container{
+    margin:10px;
+    padding:10px;
+}
+.overview-container {
+    margin:10px;
+}
+
+.urls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.url-link {
+    text-decoration: none;
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+}
+
+.url-link:hover {
+    text-decoration: underline;
+}

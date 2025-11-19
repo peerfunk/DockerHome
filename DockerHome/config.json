@@ -1,0 +1,167 @@
+[
+  {
+    "Id": "0d3851479a15d9f53098abaccdcc02527ccf30075f5245bc90ca31169801abc3",
+    "Name": "dockerhome",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "uncategorized",
+    "Ports": null,
+    "Description": "",
+    "IconUrl": "",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "a46c02ccb577ba5f245a37e5e6e95e20fda2c355ff3fce5e782a16e900c92cef",
+    "Name": "nuance-https",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "uncategorized",
+    "Ports": null,
+    "Description": "Official build of Nginx.",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/library%2fnginx?type=logo",
+    "Urls": [
+      "https://localhost",
+      "http://localhost"
+    ],
+    "HubUrl": null,
+    "Selected": true
+  },
+  {
+    "Id": "4a32e61096e69120e0f2194a5383b3b24c66d2536e0d6697cf7089dea5fbca72",
+    "Name": "dockercompose-db-1",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "dockercompose",
+    "Ports": null,
+    "Description": "MySQL is a widely used, open-source relational database management system (RDBMS).",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/library%2fmysql?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "17adb5354a9922b4086d5a1dab453f47010b555264b8bc6a7dfb1cce4552f3d5",
+    "Name": "MePortalDB",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "mysql",
+    "Ports": null,
+    "Description": "MySQL is a widely used, open-source relational database management system (RDBMS).",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/library%2fmysql?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "da0c56ef8992c0b6cee86a3d88a1877639d7468e60623da934072a90cf27e8ee",
+    "Name": "ohif-ohif_dcm4chee-1",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "ohif",
+    "Ports": null,
+    "Description": "A zero-footprint, extensible medical imaging viewer supporting DICOMweb and custom workflows",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/ohif%2fapp?type=logo",
+    "Urls": [
+      "https://localhost",
+      "http://localhost",
+      "http://localhost:0"
+    ],
+    "HubUrl": null,
+    "Selected": true
+  },
+  {
+    "Id": "834546917f6d81bcedb64fdebdda1e53f9742cf3125c027a6be1c79ae3c3c6cf",
+    "Name": "dcm4chee-arc-1",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "dcm4chee",
+    "Ports": null,
+    "Description": "dcm4che/archive 5 using postgreSQL as DB",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/dcm4che%2fdcm4chee-arc-psql?type=logo",
+    "Urls": [
+      "http://localhost:8181"
+    ],
+    "HubUrl": null,
+    "Selected": true
+  },
+  {
+    "Id": "487579c0d54e2cfe7221f2a891da200900563a4cb7e4c81ca4ce03b4b6e4bed4",
+    "Name": "dcm4chee-ldap-1",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "dcm4chee",
+    "Ports": null,
+    "Description": "slapd with schemas and default configuration for dcm4chee-arc 5.x",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/dcm4che%2fslapd-dcm4chee?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "c5b0912d2bb32b5d376bc88a4947e1273590b0b34c363358ea4db1162fe07535",
+    "Name": "dcm4chee-db-1",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "dcm4chee",
+    "Ports": null,
+    "Description": "PostgreSQL for dcm4che-arc 5.x",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/dcm4che%2fpostgres-dcm4chee?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "aa0446558d52782b810af2b0312f58bd3b9cb31544fde928398b4a1eef81416c",
+    "Name": "redis",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "mysql",
+    "Ports": null,
+    "Description": "Redis is the world\u2019s fastest data platform for caching, vector search, and NoSQL databases.",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/library%2fredis?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "896664053abdd4b71cd20d90f2d02cd9e6e4e175647a3569bb6804f0b11a80e5",
+    "Name": "gotenberg",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "docker",
+    "Ports": null,
+    "Description": "A containerized API for seamless PDF conversion.",
+    "IconUrl": "https://hub.docker.com/api/media/repos_logo/v1/gotenberg%2fgotenberg?type=logo",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "0245038c23cdb21c376256516a7f0c18fa8c82dda4cbb7b31702d6b20837c2f3",
+    "Name": "kibana",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "elasticsearch",
+    "Ports": null,
+    "Description": "",
+    "IconUrl": "",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  },
+  {
+    "Id": "e4c623b4b0161b489a535e72e8f9af01ec82b604be55c1e592fba85cdcc58074",
+    "Name": "elasticsearch",
+    "Running": null,
+    "Image": null,
+    "ComposeProject": "elasticsearch",
+    "Ports": null,
+    "Description": "",
+    "IconUrl": "",
+    "Urls": [],
+    "HubUrl": null,
+    "Selected": false
+  }
+]
