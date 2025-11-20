@@ -11,7 +11,7 @@ namespace DockerHome.Controllers
     {
         private readonly ContainerService _containerService;
         private readonly DockerHubClient _hub;
-        private readonly string _configPath = "config.json";
+        private readonly string _configPath = "data/config.json";
 
         public ContainersController(ContainerService containerService,DockerHubClient hub)
         {
@@ -59,6 +59,7 @@ namespace DockerHome.Controllers
         [HttpPost("display")] 
         public IActionResult SaveDisplay(List<ContainerDto> containers)
         {
+            Directory.CreateDirectory(Path.GetDirectoryName(_configPath));
             System.IO.File.WriteAllText(_configPath,
                 JsonSerializer.Serialize(containers, new JsonSerializerOptions { WriteIndented = true }));
 

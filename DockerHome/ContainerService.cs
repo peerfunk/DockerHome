@@ -45,11 +45,11 @@ namespace DockerHome.Services
                 {
                     if (p.PrivatePort == 80 || p.PrivatePort == 8080)
                     {
-                        return $"http://{_config["Hostname"]}" + (p.PrivatePort == 80? "": ":"+ p.PublicPort);
+                        return $"http://{_config["Hostname"]}" + (p.PublicPort == 80? "": ":"+ p.PublicPort);
                     }
                     else if (p.PrivatePort == 443)
                     {
-                        return $"https://{_config["Hostname"]}" + (p.PrivatePort == 443? "": ":"+ p.PublicPort);
+                        return $"https://{_config["Hostname"]}" + (p.PublicPort == 443? "": ":"+ p.PublicPort);
                     }
 
                     return "";
