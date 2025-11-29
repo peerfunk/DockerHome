@@ -347,7 +347,7 @@ async function main() {
                     type: "text",
                     class: "icon-url-input",
                     placeholder: "Icon URL",
-                    value: cfg.iconUrl || c.iconUrl || ""
+                    value: cfg.iconUrl
                 });
 
                 function buildPreview(url) {
@@ -401,7 +401,7 @@ async function main() {
                     el("input", {
                         type: "text",
                         placeholder: "Description",
-                        value: cfg.description || c.description || "",
+                        value: cfg.description,
                         on: { input: e => (cfg.description = e.target.value) }
                     })
                 );
@@ -410,7 +410,7 @@ async function main() {
                 card.appendChild(
                     el("textarea", {
                         placeholder: "URLs (one per line)",
-                        value: (cfg.urls || c.urls || []).join("\n"),
+                        value: (cfg.urls || []).join("\n"),
                         on: {
                             input: e => {
                                 cfg.urls = e.target.value
@@ -427,7 +427,7 @@ async function main() {
                     el("input", {
                         type: "text",
                         placeholder: "Category",
-                        value: cfg.composeProject || c.composeProject || "",
+                        value: cfg.composeProject ,
                         on: { input: e => (cfg.composeProject = e.target.value) }
                     })
                 );

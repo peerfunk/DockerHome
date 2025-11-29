@@ -11,12 +11,14 @@ namespace DockerHome.Controllers
     {
         private readonly ContainerService _containerService;
         private readonly DockerHubClient _hub;
+        private readonly ILogger<ContainersController> _logger;
         private readonly string _configPath = "data/config.json";
 
-        public ContainersController(ContainerService containerService,DockerHubClient hub)
+        public ContainersController(ContainerService containerService, DockerHubClient hub, ILogger<ContainersController> logger)
         {
             _containerService = containerService;
             _hub = hub;
+            _logger = logger;
         }
 
 
@@ -24,15 +26,14 @@ namespace DockerHome.Controllers
         public async Task<IActionResult> GetAllContainers()
         {
             var containers = await _containerService.GetAllContainersAsync();
-
+            
             foreach (var c in containers)
             {
                 var info = await _hub.GetDockerHubInfo(c.Image);
                 c.Description = info.description;
                 c.IconUrl = info.logoUrl;
-                
             }
-           
+
 
             return Ok(containers);
         }
@@ -42,7 +43,29 @@ namespace DockerHome.Controllers
         public async Task<IActionResult> GetDisplay()
         {
             if (!System.IO.File.Exists(_configPath))
-                return Ok(new List<ContainerDto>());
+            {
+                _logger.LogInformation($"Config file does not exist, creating a new one");
+                var containers = await _containerService.GetAllContainersAsync();
+
+                foreach (var c in containers)
+                {
+                    var info = await _hub.GetDockerHubInfo(c.Image);
+                    c.Description = info.description;
+                    c.IconUrl = info.logoUrl;
+                    if (c.Urls?.Count > 0)
+                    {
+                        c.Selected = true;
+                    }
+                }
+
+                _logger.LogInformation($"Config file does not exist, {containers.Count(x=>x.Selected)} containers");
+                
+                Directory.CreateDirectory(Path.GetDirectoryName(_configPath));
+                System.IO.File.WriteAllText(_configPath,
+                    JsonSerializer.Serialize(containers, new JsonSerializerOptions { WriteIndented = true }));
+                return Ok(containers);
+            }
+
 
             var config = JsonSerializer.Deserialize<List<ContainerDto>>(System.IO.File.ReadAllText(_configPath));
             var current = await _containerService.GetAllContainersAsync();
@@ -56,7 +79,7 @@ namespace DockerHome.Controllers
             return Ok(config);
         }
 
-        [HttpPost("display")] 
+        [HttpPost("display")]
         public IActionResult SaveDisplay(List<ContainerDto> containers)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(_configPath));
